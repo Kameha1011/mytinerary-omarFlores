@@ -1,8 +1,9 @@
+import { StyledButton } from "../../globalStyles";
 import { StyledHero } from "./HeroStyles";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
 import HeaderImg from "../../assets/images/header.jpg";
 export const Hero = () => {
   return (
@@ -12,15 +13,15 @@ export const Hero = () => {
           <Col md="5">
             <h1 className="display-6">Cool text for engaging the user</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              nobis eaque debitis qui illo amet quae, ex numquam! Quas nihil
-              eligendi quis tempore excepturi odio voluptatem et ipsa veritatis
-              neque.
+              <i>
+                &quot;Find your perfect trip designed by insiders who know and
+                love their cities &quot;
+              </i>
             </p>
-            <Button>View More</Button>
+            <StyledButton>View More</StyledButton>
           </Col>
           <Col md="5">
-            <img src={HeaderImg} alt="header image" />
+            <Image src={HeaderImg} alt="header image" fluid />
           </Col>
         </Row>
       </Container>

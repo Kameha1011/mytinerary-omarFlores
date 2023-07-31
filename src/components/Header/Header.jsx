@@ -1,11 +1,12 @@
+import { StyledButton } from "../../globalStyles";
+import { StyledNavbar } from "./HeaderStyles";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import Button from "react-bootstrap/Button";
 import {FaUserAlt} from "react-icons/fa";
 export const Header = () => {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
+    <StyledNavbar expand="lg" >
       <Container>
         <Navbar.Brand href="#home">MyTinerary</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -14,14 +15,14 @@ export const Header = () => {
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">Cities</Nav.Link>
             <Nav.Link href="#link">
-                <Button variant="primary" className="text-center px-3 fw-bold">
+                <StyledButton variant="primary" className="text-center px-3 fw-bold">
                     <FaUserAlt className="me-2"/>
                     Login
-                </Button>
+                </StyledButton>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
+    </StyledNavbar>
   );
 };
