@@ -1,10 +1,11 @@
 import { Header } from "./components/Header"
+import { Hero } from "./components/Hero/Hero"
 function App() {
 
   return (
     <>
       <Header />
-      <h1>Epale sans</h1>
+      <Hero />
     </>
   )
 }
