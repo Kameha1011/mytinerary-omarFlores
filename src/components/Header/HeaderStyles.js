@@ -7,4 +7,8 @@ export const StyledNavbar = styled(Navbar)`
     .nav-link, .navbar-brand{
         color: #F6F4EB;
     }
+    .nav-link:hover{
+        color: #4682A9;
+    }
+
 `

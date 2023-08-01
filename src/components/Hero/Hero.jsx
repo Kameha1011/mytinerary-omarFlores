@@ -11,7 +11,7 @@ export const Hero = () => {
             their cities &quot;
           </i>
         </p>
-        <StyledButton>View More</StyledButton>
+        <StyledButton>View Cities</StyledButton>
       </div>
     </StyledHero>
   );
