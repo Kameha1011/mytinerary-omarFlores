@@ -1,7 +1,7 @@
 import { StyledImg, CarouselItemContainer } from "./CarouselItemStyles";
 export const CarouselItem = ({ isActive, slideDirection, items }) => {
   return (
-    <CarouselItemContainer styledProps={{ isActive, slideDirection }}>
+    <CarouselItemContainer styledprops={{ isActive, slideDirection }}>
       <div className="d-flex align-items-center justify-content-center flex-wrap gap-5">
         {items.map((item, index) =>
             (

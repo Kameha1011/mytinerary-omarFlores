@@ -22,5 +22,6 @@ export const CarouselContainer = styled.div`
     .carousel-items-container {
         width: 100%;
         height: 50rem;
+        overflow-x: hidden;
     }
 `
