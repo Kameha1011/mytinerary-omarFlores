@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const StyledImg = styled.img`
+width: 40%;
+height: 200px;
+@media (min-width: 768px) {
   width: 35%;
   height: 350px;
+}
 `;
 export const CarouselItemContainer = styled.div`
   position: absolute;

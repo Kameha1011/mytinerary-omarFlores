@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import { FaUserAlt } from "react-icons/fa";
 export const Header = () => {
   return (
-    <StyledNavbar expand="lg">
+    <StyledNavbar expand="md">
       <Container>
         <Navbar.Brand href="#home">MyTinerary</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
