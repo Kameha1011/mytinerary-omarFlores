@@ -1,18 +1,20 @@
 import { Header } from "./components/Header/Header";
 import { Hero } from "./components/Hero/Hero";
 import { Carousel } from "./components/Carousel/Carousel";
-import Container from "react-bootstrap/Container";
+import { Footer } from "./components/Footer/Footer";
+import { StyledContainer } from "./globalStyles";
 function App() {
   return (
     <>
       <Header />
       <main>
         <Hero />
-        <Container as="section" className="my-5 text-center">
+        <StyledContainer as="section" className="my-5 text-center">
           <h2>Popular mytineraries</h2>
           <Carousel />
-        </Container>
+        </StyledContainer>
       </main>
+      <Footer />
     </>
   );
 }
