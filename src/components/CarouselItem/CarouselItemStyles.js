@@ -1,12 +1,32 @@
 import styled from "styled-components";
 
-export const StyledImg = styled.img`
-width: 40%;
-height: 200px;
-@media (min-width: 768px) {
-  width: 35%;
-  height: 350px;
-}
+export const StyledImg = styled.img``;
+export const CarouselItemCard = styled.div`
+  width: 40%;
+  height: 200px;
+  background-image: ${(props) => `url(${props.bgimg})`};
+  background-size: 100% 100%; 
+  background-repeat: no-repeat;
+  color: #fff;
+  box-shadow: inset 0px -50px 25px -15px rgba(0,0,0,0.75);
+  transition: box-shadow .4s ease-in;
+  h3{
+    position: relative;
+    top: 85%;
+    transition: all .4s ease-in-out;
+  }
+  &:hover {
+    box-shadow: inset 0px -380px 25px -15px rgba(0,0,0,0.75);
+    transition: all .4s ease-in;
+    h3{
+      top: 50%;
+      transition: all .4s ease-in;
+    }
+  }
+  @media (min-width: 768px) {
+    width: 35%;
+    height: 350px;
+  }
 `;
 export const CarouselItemContainer = styled.div`
   position: absolute;
