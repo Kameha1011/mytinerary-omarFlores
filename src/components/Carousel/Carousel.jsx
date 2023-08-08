@@ -3,7 +3,7 @@ import { CarouselItem } from "../CarouselItem/CarouselItem";
 import { CarouselContainer } from "./CarouselStyles";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { cities } from "../../constants/cities";
-import { useInterval } from "../../utils/useInterval";
+import { useInterval } from "../../customHooks/useInterval";
 export const Carousel = () => {
   const [activeSlide, setActiveSlide] = useState(1);
   const [slideDirection, setSlideDirection] = useState("right");
