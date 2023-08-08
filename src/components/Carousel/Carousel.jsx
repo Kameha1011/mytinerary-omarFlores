@@ -1,28 +1,29 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { CarouselItem } from "../CarouselItem/CarouselItem";
 import { CarouselContainer } from "./CarouselStyles";
 import { GrNext, GrPrevious } from "react-icons/gr";
-import { carouselSlides } from "../../constants/CarouselSlides";
-
+import { cities } from "../../constants/cities";
+import { useInterval } from "../../utils/useInterval";
 export const Carousel = () => {
   const [activeSlide, setActiveSlide] = useState(1);
   const [slideDirection, setSlideDirection] = useState("right");
-  const timeoutRef = useRef(null);
-  function resetTimeout() {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-  }
+  const [carouselSlides, setCarouselSlides] = useState([]);
+
   useEffect(() => {
-    resetTimeout();
-    timeoutRef.current = setInterval(() => {
-      if (activeSlide < carouselSlides.length) {
-        setActiveSlide(activeSlide + 1);
-      } else {
-        setActiveSlide(1);
-      }
-    }, 10000);
-  });
+    let slides = [];
+    for (let i = 4; i <= cities.length; i += 4) {
+      const slide = cities.slice(i - 4, i);
+      slides.push(slide);
+    }
+    setCarouselSlides(slides);
+  }, []);
+  useInterval(() => {
+    if (activeSlide < carouselSlides.length) {
+      setActiveSlide(activeSlide + 1);
+    } else {
+      setActiveSlide(1);
+    }
+  }, 10000);
   return (
     <CarouselContainer className="position-absolute">
       <GrPrevious

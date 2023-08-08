@@ -11,6 +11,8 @@ export const StyledButton = styled(Button)`
     }
 `
 export const StyledContainer = styled(Container)`
-height: 50rem;
-
+    height: 30rem;
+    @media  (min-width: 768px) {
+        height: 50rem;
+    }
 `
