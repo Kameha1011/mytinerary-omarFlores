@@ -4,17 +4,14 @@ import { CarouselContainer } from "./CarouselStyles";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { cities } from "../../constants/cities";
 import { useInterval } from "../../customHooks/useInterval";
+import { makeSlides } from "../../utils/makeSlides";
 export const Carousel = () => {
   const [activeSlide, setActiveSlide] = useState(1);
   const [slideDirection, setSlideDirection] = useState("right");
   const [carouselSlides, setCarouselSlides] = useState([]);
 
   useEffect(() => {
-    let slides = [];
-    for (let i = 4; i <= cities.length; i += 4) {
-      const slide = cities.slice(i - 4, i);
-      slides.push(slide);
-    }
+    const slides = makeSlides(cities, 4);
     setCarouselSlides(slides);
   }, []);
   useInterval(() => {
