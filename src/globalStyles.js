@@ -10,6 +10,12 @@ export const StyledButton = styled(Button)`
         background-color: #316587;
     }
 `
+export const StyledMain = styled.main`
+min-height: 80vh;
+@media  (min-width: 768px) {
+        min-height: 90vh;
+    }
+`
 export const StyledContainer = styled(Container)`
     height: 30rem;
     @media  (min-width: 768px) {
