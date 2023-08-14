@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { StyledButton } from "../../globalStyles";
 import { StyledHero } from "./HeroStyles";
 export const Hero = () => {
@@ -11,7 +12,9 @@ export const Hero = () => {
             their cities &quot;
           </i>
         </p>
-        <StyledButton className="cta-button">View Cities</StyledButton>
+        <Link to="/cities">
+          <StyledButton className="cta-button">View Cities</StyledButton>
+        </Link>
       </div>
     </StyledHero>
   );
