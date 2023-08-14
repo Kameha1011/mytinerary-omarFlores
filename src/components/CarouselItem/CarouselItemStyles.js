@@ -12,6 +12,7 @@ export const CarouselItemCard = styled.div`
   transition: box-shadow .4s ease-in;
   h3{
     position: relative;
+    font-size: 1rem;
     top: 85%;
     transition: all .4s ease-in-out;
   }
@@ -26,6 +27,9 @@ export const CarouselItemCard = styled.div`
   @media (min-width: 768px) {
     width: 35%;
     height: 350px;
+    h3{
+      font-size: 1.9rem;
+    }
   }
 `;
 export const CarouselItemContainer = styled.div`
