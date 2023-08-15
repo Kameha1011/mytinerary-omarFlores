@@ -19,6 +19,6 @@ min-height: 80vh;
 export const StyledContainer = styled(Container)`
     min-height: 30rem;
     @media  (min-width: 768px) {
-        height: 50rem;
+       min-height: 50rem;
     }
 `

@@ -3,6 +3,7 @@ import { StyledCityCard } from "./CitiesContainerStyles";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button"
 
 export const CitiesContainer = () => {
   return (
@@ -13,10 +14,15 @@ export const CitiesContainer = () => {
             <StyledCityCard className="bg-dark text-white">
               <StyledCityCard.Img src={city.src} alt={city.alt} />
               <StyledCityCard.ImgOverlay>
-                <StyledCityCard.Title>{city.alt}</StyledCityCard.Title>
-                <StyledCityCard.Text>
-                  Last updated 3 mins ago
-                </StyledCityCard.Text>
+                <div className="card-text">
+                  <StyledCityCard.Title>{city.alt}</StyledCityCard.Title>
+                  <StyledCityCard.Text>
+                    Last updated 3 mins ago
+                  </StyledCityCard.Text>
+                </div>
+                  <Button>
+                    View City
+                  </Button>
               </StyledCityCard.ImgOverlay>
             </StyledCityCard>
           </Col>
