@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const StyledImg = styled.img``;
-export const CarouselItemCard = styled.div`
+export const CarouselItemCard = styled.div.attrs((props) => ({
+  bgimg: props.bgimg
+}))`
   width: 40%;
   height: 200px;
   background-image: ${(props) => `url(${props.bgimg})`};
@@ -32,7 +34,10 @@ export const CarouselItemCard = styled.div`
     }
   }
 `;
-export const CarouselItemContainer = styled.div`
+export const CarouselItemContainer = styled.div.attrs((props) => ({
+  slideDirection: props.slideDirection
+  
+}))`
   position: absolute;
   width: 100%;
   filter: blur(${(props) => (props.styledprops.isActive ? "0" : "5px")});
