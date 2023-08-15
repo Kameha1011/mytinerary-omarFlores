@@ -17,7 +17,7 @@ min-height: 80vh;
     }
 `
 export const StyledContainer = styled(Container)`
-    height: 30rem;
+    min-height: 30rem;
     @media  (min-width: 768px) {
         height: 50rem;
     }
