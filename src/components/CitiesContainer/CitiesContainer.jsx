@@ -12,12 +12,12 @@ export const CitiesContainer = () => {
         {cities.map((city, index) => (
           <Col xs={6} md={4} lg={4} xl={3} key={index}>
             <StyledCityCard className="bg-dark text-white">
-              <StyledCityCard.Img src={city.src} alt={city.alt} />
+              <StyledCityCard.Img src={city.picture} alt={city.city} />
               <StyledCityCard.ImgOverlay>
                 <div className="card-text">
-                  <StyledCityCard.Title>{city.alt}</StyledCityCard.Title>
+                  <StyledCityCard.Title>{city.city}</StyledCityCard.Title>
                   <StyledCityCard.Text>
-                    Last updated 3 mins ago
+                    {city.country}
                   </StyledCityCard.Text>
                 </div>
                   <Button>

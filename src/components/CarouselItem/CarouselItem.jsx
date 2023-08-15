@@ -5,8 +5,8 @@ export const CarouselItem = ({ isActive, slideDirection, items }) => {
       <div className="d-flex align-items-center justify-content-center flex-wrap gap-2">
         {items.map((item, index) =>
             (
-              <CarouselItemCard key={index} bgimg={item.src}>
-                <h3>{item.alt}</h3>
+              <CarouselItemCard key={index} bgimg={item.picture}>
+                <h3>{item.city}</h3>
               </CarouselItemCard>
             )      
         )}
