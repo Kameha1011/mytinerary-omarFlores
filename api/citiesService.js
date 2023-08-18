@@ -4,9 +4,12 @@ const citiesRequest = axios.create({
     baseURL: "http://localhost:3000/api/cities"
 })
 
-export const getCities = async () => {
+export const getCities = async (name) => {
     try {
-        const response = await citiesRequest.get('/');
+        const queries = {
+            name: name || ''
+        }
+        const response = await citiesRequest.get(`/?name=${queries.name}`);
         return response.data
     } catch (error) {
         console.log(error);
