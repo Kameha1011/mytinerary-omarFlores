@@ -18,7 +18,7 @@ export const CitiesContainer = () => {
     };
     fetch();
   }, []);
-  const [searchInput, setSearchInput] = useState();
+  const [searchInput, setSearchInput] = useState('');
   const handleOnChange = (e) => {
     setSearchInput(e.target.value);
   };
