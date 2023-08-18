@@ -4,7 +4,7 @@ export const CityDetail = () => {
   return (
     <>
       <header className="d-flex flex-column align-items-center justify-content-center p-2">
-        <h1>{city.name}</h1>
+        <h1>{city.name}, {city.country}</h1>
         <img src={city.picture} alt={city.name} className="rounded-5 h-50" />
       </header>
       <section className="text-center">
