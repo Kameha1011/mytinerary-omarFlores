@@ -8,6 +8,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { getCities } from "../../../api/citiesService";
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 export const CitiesContainer = () => {
   //TODO: crear customHook useAxios
   const [cities, setCities] = useState();
@@ -55,7 +56,9 @@ export const CitiesContainer = () => {
                       {city.country}, {city.continent}
                     </StyledCityCard.Text>
                   </div>
-                  <Button>View City</Button>
+                  <Link to={`/cities/${city._id}`} className='text-decoration-none'>
+                    <Button>View City</Button>
+                  </Link>
                 </StyledCityCard.ImgOverlay>
               </StyledCityCard>
             </Col>
