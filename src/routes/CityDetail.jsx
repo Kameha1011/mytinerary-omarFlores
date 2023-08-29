@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import { Itineraries } from "../components/Itineraries/Itineraries";
 export const CityDetail = () => {
   const city = useLoaderData();
   return (
@@ -9,6 +10,7 @@ export const CityDetail = () => {
       </header>
       <section className="text-center">
         <h2>Under Construction 🚧</h2>
+        <Itineraries />
       </section>
     </>
   );

@@ -10,18 +10,18 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from 'react-router-dom';
-import { getCities } from "../../../api/citiesService";
+// import { getCities } from "../../../api/citiesService";
 import { continents } from "../../constants/forms/continentOptions";
+import { useDispatch, useSelector } from "react-redux";
+import { get_cities, filter_cities } from "../../store/actions/eventActions";
 export const CitiesContainer = () => {
-  //TODO: crear customHook useAxios
-  const [cities, setCities] = useState();
+
+  const cities = useSelector((store) => store.cityReducer.city);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    const fetch = async () => {
-      const data = await getCities();
-      setCities(data);
-    };
-    fetch();
-  }, []);
+    dispatch(get_cities());
+  }, [dispatch]);
   const [searchInput, setSearchInput] = useState('');
   const [continent, setContinent] = useState('');
   const handleSearch = (e) => {
@@ -32,12 +32,8 @@ export const CitiesContainer = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    const fetch = async () => {
-      const data = await getCities(searchInput, continent);
-      setCities(data);
-      setSearchInput("");
-    };
-    fetch();
+    dispatch(filter_cities({name: searchInput, continent}));
+    setSearchInput("");
   };
   return (
     <Container fluid className="p-0 my-5">
