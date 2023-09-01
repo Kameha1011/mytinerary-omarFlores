@@ -1,13 +1,19 @@
+import { useState } from "react";
 import { StyledItinerary } from "./ItinerariesStyle";
-import { AiFillDollarCircle, AiOutlineClockCircle, AiFillHeart } from "react-icons/ai";
+import {
+  AiFillDollarCircle,
+  AiOutlineClockCircle,
+  AiFillHeart,
+} from "react-icons/ai";
 export const Itineraries = ({ itinerary }) => {
+  const [showActivities, setShowActivities] = useState(false);
   return (
     <article
       key={itinerary._id}
       className="d-flex flex-column gap-3 align-items-center my-2"
     >
       <h1>Itineraries</h1>
-      <StyledItinerary className="d-flex">
+      <StyledItinerary className="d-flex flex-wrap">
         <div className="user-info p-2">
           <h4>{itinerary.user.name}</h4>
           <img className="img-thumbnail" src={itinerary.user.picture} />
@@ -32,7 +38,7 @@ export const Itineraries = ({ itinerary }) => {
               )}
             </p>
             <p>
-              <AiOutlineClockCircle className="me-1"/>
+              <AiOutlineClockCircle className="me-1" />
               {itinerary.duration} days
             </p>
             <div>
@@ -41,7 +47,21 @@ export const Itineraries = ({ itinerary }) => {
               ))}
             </div>
           </div>
-          <button className="likes d-flex align-items-center justify-content-center">{itinerary.likes} <AiFillHeart /></button>
+          <button className="likes d-flex align-items-center justify-content-center">
+            {itinerary.likes} <AiFillHeart />
+          </button>
+        </div>
+        <div className="activities">
+          <button className="view-more d-flex align-items-center justify-content-center"
+            onClick={() => setShowActivities(!showActivities)}          
+          >
+            View More
+          </button>
+          {showActivities && (    
+          <div className="activities-container">
+            <p>Under Construction 🚧</p>
+          </div>
+          )}
         </div>
       </StyledItinerary>
     </article>
