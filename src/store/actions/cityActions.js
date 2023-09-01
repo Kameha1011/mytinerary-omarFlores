@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getCities } from "../../../api/citiesService";
+import { getCities, getCityById } from "../../../api/citiesService";
 
 export const get_cities = createAsyncThunk("get_cities", async () => {
   try {
@@ -31,3 +31,19 @@ export const filter_cities = createAsyncThunk(
     }
   }
 );
+export const get_city_by_id = createAsyncThunk(
+  "get_city_by_id",
+  async (id) => {
+    try {
+      const city = await getCityById(id);
+      return {
+        city,
+      };
+    } catch (error) {
+      return {
+        city: [],
+        error,
+      };
+    }
+  }
+)
