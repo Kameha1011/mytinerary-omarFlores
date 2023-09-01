@@ -10,10 +10,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from 'react-router-dom';
-// import { getCities } from "../../../api/citiesService";
 import { continents } from "../../constants/forms/continentOptions";
 import { useDispatch, useSelector } from "react-redux";
-import { get_cities, filter_cities } from "../../store/actions/eventActions";
+import { get_cities, filter_cities } from "../../store/actions/cityActions";
 export const CitiesContainer = () => {
 
   const cities = useSelector((store) => store.cityReducer.city);
