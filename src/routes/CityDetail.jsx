@@ -3,6 +3,7 @@ import { Itineraries } from "../components/Itineraries/Itineraries";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { get_city_by_id } from "../store/actions/cityActions";
+import { DetailImg } from "./styles/CityDetailStyles";
 import { StyledButton } from "../globalStyles";
 export const CityDetail = () => {
   const city = useSelector((store) => store.cityReducer.city);
@@ -24,7 +25,7 @@ export const CityDetail = () => {
         <h1>
           {city.name}, {city.country}
         </h1>
-        <img src={city.picture} alt={city.name} className="rounded-5 h-50" />
+        <DetailImg src={city.picture} alt={city.name} className="rounded-5 h-50" />
       </header>
       <section className="text-center">
         {city.itineraries?.map((itinerary) => (
