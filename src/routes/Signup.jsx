@@ -2,7 +2,7 @@ import {
   StyledMain,
   SignUpForm,
   SignUpWithButton,
-} from "./styles/SignupStyles";
+} from "./styles/SignFormsStyles";
 import { StyledButton, StyledLink } from "../globalStyles";
 import { FcGoogle } from "react-icons/fc";
 import Form from "react-bootstrap/Form";
