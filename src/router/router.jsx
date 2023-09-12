@@ -6,6 +6,7 @@ import { CityDetail } from "../routes/CityDetail";
 import { getCityById } from "../api/citiesService";
 import { Signup } from "../routes/Signup";
 import { Signin } from "../routes/Signin";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -33,10 +34,18 @@ export const router = createBrowserRouter([
   },
   {
     path: "/signup",
-    element: <Signup />,
+    element: (
+      <ProtectedRoute >
+        <Signup />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/signin",
-    element: <Signin />,
+    element: (
+      <ProtectedRoute >
+        <Signin />
+      </ProtectedRoute>
+    ),
   },
 ]);
