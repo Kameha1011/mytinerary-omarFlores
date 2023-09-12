@@ -5,11 +5,12 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import { FaUserAlt } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { signout } from "../../store/actions/authActions";
 export const Header = () => {
   const user = useSelector((store) => store.authReducer.user);
+  const dispatch = useDispatch();
   const location = useLocation();
-  console.log(location);
   return (
     <StyledNavbar expand="md">
       <Container>
@@ -23,7 +24,7 @@ export const Header = () => {
             <Link to="/cities" className="text-decoration-none nav-link">
               Cities
             </Link>
-            <Link to={user ? location.pathname : '/signin'}>
+            <Link to={user ? location.pathname : '/signin'} onClick={() => dispatch(signout())}>
               <StyledButton
                 variant="primary"
                 className="text-center ms-2 px-3 fw-bold"

@@ -3,7 +3,7 @@ import { Home } from "../routes/Home";
 import { Main } from "../layouts/Main";
 import { Cities } from "../routes/Cities";
 import { CityDetail } from "../routes/CityDetail";
-import { getCityById } from "../../api/citiesService";
+import { getCityById } from "../api/citiesService";
 import { Signup } from "../routes/Signup";
 import { Signin } from "../routes/Signin";
 

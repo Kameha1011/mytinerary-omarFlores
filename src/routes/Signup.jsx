@@ -74,7 +74,7 @@ export const Signup = () => {
                 ))}
               </Form.Select>
               <Form.Text className="text-light">
-                Enter your last name.
+                Enter your country.
               </Form.Text>
             </Form.Group>
           </Col>
