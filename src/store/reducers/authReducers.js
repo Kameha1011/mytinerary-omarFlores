@@ -1,0 +1,26 @@
+import { createReducer } from "@reduxjs/toolkit";
+import { refreshToken, signin } from "../actions/authActions";
+
+const initialState = {
+    user: null,
+    token: null,
+}
+
+const authReducer = createReducer(initialState, (builder) => {
+    builder.addCase(signin.fulfilled, (state, action) => {
+        return {
+            ...state,
+            user: action.payload.user,
+            token: action.payload.token,
+        }
+    })
+    builder.addCase(refreshToken.fulfilled, (state, action) => {
+        return {
+            ...state,
+            token: action.payload.token,
+            user: action.payload.user,
+        }
+    })
+})
+
+export default authReducer

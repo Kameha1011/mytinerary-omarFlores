@@ -8,16 +8,42 @@ import { FcGoogle } from "react-icons/fc";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useDispatch } from "react-redux";
+import { signin } from "../store/actions/authActions";
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 export const Signin = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+})
+const handleInput = (event) => {
+  setFormData({
+      ...formData,
+      [event.target.name]: event.target.value
+  })
+}
+  const handleSignin = async (e) => {
+    try {
+      e.preventDefault();
+      dispatch(signin(formData))
+      navigate(location.state?.from || '/')
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <StyledMain className="d-flex align-items-center justify-content-center">
-      <SignUpForm className="p-3">
+      <SignUpForm className="p-3" onSubmit={handleSignin}>
         <h1>Sign In</h1>
         <Row>
           <Col xl="12">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="pbateman@bussiness.com" />
+              <Form.Control type="email" name="email" placeholder="pbateman@bussiness.com" onChange={handleInput}/>
               <Form.Text className="text-light">
                 We&apos;ll never share your email with anyone else.
               </Form.Text>
@@ -26,7 +52,7 @@ export const Signin = () => {
           <Col xl="12">
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Enter Password" />
+              <Form.Control type="password" name="password" placeholder="Enter Password" onChange={handleInput} />
               <Form.Text className="text-light">
                 We&apos;ll never share your password with anyone else.
               </Form.Text>
@@ -35,7 +61,7 @@ export const Signin = () => {
         </Row>
         <Row>
           <Col>
-            <StyledButton>Sign In</StyledButton>
+            <StyledButton type="submit">Sign In</StyledButton>
           </Col>
 
           <Col>
