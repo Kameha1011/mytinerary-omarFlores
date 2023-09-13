@@ -24,13 +24,24 @@ export const Header = () => {
             <Link to="/cities" className="text-decoration-none nav-link">
               Cities
             </Link>
-            <Link to={user ? location.pathname : '/signin'} onClick={() => dispatch(signout())}>
+            <Link
+              to={user ? location.pathname : "/signin"}
+              onClick={() => dispatch(signout())}
+            >
               <StyledButton
                 variant="primary"
                 className="text-center ms-2 px-3 fw-bold"
               >
-                <FaUserAlt className="me-2" />
-                {user ? 'Sign Out' : 'Sign In'}
+                {user ? (
+                  <img
+                    src={user?.picture}
+                    alt=""
+                    className="rounded-circle me-2 user-icon"
+                  />
+                ) : (
+                  <FaUserAlt className="me-2" />
+                )}
+                {user ? "Sign Out" : "Sign In"}
               </StyledButton>
             </Link>
           </Nav>
