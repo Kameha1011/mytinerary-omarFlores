@@ -1,10 +1,8 @@
 import {
   StyledMain,
   SignUpForm,
-  SignUpWithButton,
 } from "./styles/SignFormsStyles";
 import { StyledButton, StyledLink } from "../globalStyles";
-import { FcGoogle } from "react-icons/fc";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -12,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { signin } from "../store/actions/authActions";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { GoogleButton } from "../components/GoogleButton";
 export const Signin = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -65,10 +64,7 @@ const handleInput = (event) => {
           </Col>
 
           <Col>
-            <SignUpWithButton>
-              <FcGoogle className="me-2" />
-              Sign in with Google
-            </SignUpWithButton>
+            <GoogleButton />
           </Col>
         </Row>
         <Row className="mt-5">

@@ -22,6 +22,15 @@ export const signup = async (data) => {
   }
 };
 
+export const googleSignin = async (token) => {
+  try {
+    const response = await authRequest.post("/google", {token_id: token});
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export const signout = async (token) => {
   try {
     await authRequest.post("/signout", {}, {
