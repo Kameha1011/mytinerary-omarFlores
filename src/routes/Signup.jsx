@@ -1,10 +1,5 @@
-import {
-  StyledMain,
-  SignUpForm,
-  SignUpWithButton,
-} from "./styles/SignFormsStyles";
+import { StyledMain, SignUpForm } from "./styles/SignFormsStyles";
 import { StyledButton, StyledLink } from "../globalStyles";
-import { FcGoogle } from "react-icons/fc";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -13,6 +8,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { signup } from "../store/actions/authActions";
+import { GoogleSignup } from "../components/GoogleSignup";
 export const Signup = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -38,7 +34,7 @@ export const Signup = () => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
   return (
     <StyledMain className="d-flex align-items-center justify-content-center">
       <SignUpForm className="p-3" onSubmit={handleSignup}>
@@ -128,10 +124,7 @@ export const Signup = () => {
             <StyledButton type="submit">Sign Up</StyledButton>
           </Col>
           <Col>
-            <SignUpWithButton>
-              <FcGoogle className="me-2" />
-              Sign up with Google
-            </SignUpWithButton>
+            <GoogleSignup />
           </Col>
         </Row>
         <Row className="mt-5">

@@ -1,15 +1,15 @@
 import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { googleSignin } from "../store/actions/authActions";
+import { googleSignup } from "../store/actions/authActions";
 
-export const GoogleButton = () => {
+export const GoogleSignup = () => {
   const googleBtnRef = useRef(null);
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
   const handleCredentialResponse = (response) => {
-    dispatch(googleSignin(response.credential));
+    dispatch(googleSignup(response.credential));
     navigate(location.state?.from || "/");
   };
   useEffect(() => {

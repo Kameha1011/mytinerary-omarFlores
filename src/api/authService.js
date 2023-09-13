@@ -24,7 +24,15 @@ export const signup = async (data) => {
 
 export const googleSignin = async (token) => {
   try {
-    const response = await authRequest.post("/google", {token_id: token});
+    const response = await authRequest.post("/googleSignin", {token_id: token});
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+export const googleSignup = async (token) => {
+  try {
+    const response = await authRequest.post("/googleSignup", {token_id: token});
     return response.data;
   } catch (error) {
     console.log(error);

@@ -1,5 +1,12 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { googleSignin, refreshToken, signin, signout, signup } from "../actions/authActions";
+import {
+  googleSignin,
+  googleSignup,
+  refreshToken,
+  signin,
+  signout,
+  signup,
+} from "../actions/authActions";
 
 const initialState = {
   user: null,
@@ -27,7 +34,7 @@ const authReducer = createReducer(initialState, (builder) => {
       token: action.payload.token,
       user: action.payload.user,
     };
-  })
+  });
   builder.addCase(signout.fulfilled, (state) => {
     return {
       ...state,
@@ -41,7 +48,17 @@ const authReducer = createReducer(initialState, (builder) => {
       user: action.payload.user,
       token: action.payload.token,
     };
-  })
+  });
+  builder.addCase(googleSignup.fulfilled, (state, action) => {
+    if (action.payload) {
+      return {
+        ...state,
+        user: action.payload.user,
+        token: action.payload.token,
+      };
+    }
+    console.log('user already created');
+  });
 });
 
 export default authReducer;
