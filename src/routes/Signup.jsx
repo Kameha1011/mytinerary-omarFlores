@@ -13,6 +13,7 @@ export const Signup = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
+  const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,6 +30,11 @@ export const Signup = () => {
   const handleSignup = async (e) => {
     try {
       e.preventDefault();
+      const form = e.currentTarget;
+      if (form.checkValidity() === false) {
+        setValidated(true);
+        return;
+      }
       dispatch(signup(formData));
       navigate(location.state?.from || "/");
     } catch (error) {
@@ -37,7 +43,12 @@ export const Signup = () => {
   };
   return (
     <StyledMain className="d-flex align-items-center justify-content-center">
-      <SignUpForm className="p-3" onSubmit={handleSignup}>
+      <SignUpForm
+        className="p-3"
+        onSubmit={handleSignup}
+        validated={validated}
+        noValidate
+      >
         <h1>Sign Up</h1>
         <Row>
           <Col>
@@ -47,8 +58,15 @@ export const Signup = () => {
                 type="text"
                 name="name"
                 placeholder="Patrick"
+                required
                 onChange={handleInput}
               />
+              <Form.Control.Feedback type="valid">
+                Looks good
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">
+                Please provide a name.
+              </Form.Control.Feedback>
               <Form.Text className="text-light">
                 Enter your first name.
               </Form.Text>
@@ -63,8 +81,15 @@ export const Signup = () => {
                 type="email"
                 name="email"
                 placeholder="pbateman@bussiness.com"
+                required
                 onChange={handleInput}
               />
+              <Form.Control.Feedback type="valid">
+                Looks good
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid email.
+              </Form.Control.Feedback>
               <Form.Text className="text-light">
                 We&apos;ll never share your email with anyone else.
               </Form.Text>
@@ -77,8 +102,15 @@ export const Signup = () => {
                 type="password"
                 name="password"
                 placeholder="Enter Password"
+                required
                 onChange={handleInput}
               />
+              <Form.Control.Feedback type="valid">
+                Looks good
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">
+                Please provide a password.
+              </Form.Control.Feedback>
               <Form.Text className="text-light">
                 We&apos;ll never share your password with anyone else.
               </Form.Text>
@@ -93,8 +125,15 @@ export const Signup = () => {
                 type="text"
                 name="picture"
                 placeholder="https://..."
+                required
                 onChange={handleInput}
               />
+              <Form.Control.Feedback type="valid">
+                Looks good
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">
+                Please provide a picture URL.
+              </Form.Control.Feedback>
               <Form.Text className="text-light">
                 Enter your photo URL.
               </Form.Text>
@@ -106,8 +145,15 @@ export const Signup = () => {
               <Form.Select
                 name="country"
                 onChange={handleInput}
+                required
                 aria-label="Default select example"
               >
+                <Form.Control.Feedback type="valid">
+                  Looks good
+                </Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">
+                  Please provide a country.
+                </Form.Control.Feedback>
                 <option disabled>Select Country</option>
                 {countries.map((country) => (
                   <option key={country} value={country}>
