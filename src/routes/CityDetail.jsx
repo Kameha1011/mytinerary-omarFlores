@@ -17,15 +17,17 @@ export const CityDetail = () => {
       <header className="d-flex flex-column align-items-center justify-content-center p-2">
         <aside className="w-100 ">
           <Link to="/cities" className="text-decoration-none fw-bold">
-            <StyledButton className="fs-4">
-              Go back to cities
-            </StyledButton>
+            <StyledButton className="fs-4">Go back to cities</StyledButton>
           </Link>
         </aside>
         <h1>
           {city.name}, {city.country}
         </h1>
-        <DetailImg src={city.picture} alt={city.name} className="rounded-5 h-50" />
+        <DetailImg
+          src={city.picture}
+          alt={city.name}
+          className="rounded-5 h-50"
+        />
       </header>
       <section className="text-center">
         {city.itineraries?.map((itinerary) => (

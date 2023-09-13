@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   signin as signinService,
+  signup as signupService,
   signout as signoutService,
   verify,
 } from "../../api/authService";
@@ -15,6 +16,17 @@ export const signin = createAsyncThunk("signin", async (data) => {
     console.log(error);
   }
 });
+
+export const signup = createAsyncThunk("signup", async (data) => {
+  try {
+    const response = await signupService(data);
+    localStorage.setItem("token", response.token);
+    localStorage.setItem("user", JSON.stringify(response.user));
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+})
 
 export const signout = createAsyncThunk("signout", async () => {
   try {
