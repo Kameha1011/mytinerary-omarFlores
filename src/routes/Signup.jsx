@@ -51,7 +51,7 @@ export const Signup = () => {
       >
         <h1>Sign Up</h1>
         <Row>
-          <Col>
+          <Col xs="12">
             <Form.Group className="mb-3" controlId="formBasicName">
               <Form.Label>Full Name</Form.Label>
               <Form.Control
@@ -74,7 +74,7 @@ export const Signup = () => {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col xs="12" md="6">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -95,7 +95,7 @@ export const Signup = () => {
               </Form.Text>
             </Form.Group>
           </Col>
-          <Col>
+          <Col xs="12" md="6">
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
@@ -118,7 +118,7 @@ export const Signup = () => {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col xs="12" md="6">
             <Form.Group className="mb-3" controlId="formBasicPhoto">
               <Form.Label>Picture URL</Form.Label>
               <Form.Control
@@ -139,7 +139,7 @@ export const Signup = () => {
               </Form.Text>
             </Form.Group>
           </Col>
-          <Col>
+          <Col xs="12" md="6">
             <Form.Group className="mb-3" controlId="formBasicCountry">
               <Form.Label>Country</Form.Label>
               <Form.Select
@@ -148,12 +148,6 @@ export const Signup = () => {
                 required
                 aria-label="Default select example"
               >
-                <Form.Control.Feedback type="valid">
-                  Looks good
-                </Form.Control.Feedback>
-                <Form.Control.Feedback type="invalid">
-                  Please provide a country.
-                </Form.Control.Feedback>
                 <option disabled>Select Country</option>
                 {countries.map((country) => (
                   <option key={country} value={country}>
@@ -161,15 +155,21 @@ export const Signup = () => {
                   </option>
                 ))}
               </Form.Select>
+              <Form.Control.Feedback type="valid">
+                Looks good
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="invalid">
+                Please provide a country.
+              </Form.Control.Feedback>
               <Form.Text className="text-light">Enter your country.</Form.Text>
             </Form.Group>
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col xs="12" md="2" className="mb-4">
             <StyledButton type="submit">Sign Up</StyledButton>
           </Col>
-          <Col>
+          <Col xs="12" md="2">
             <GoogleSignup />
           </Col>
         </Row>

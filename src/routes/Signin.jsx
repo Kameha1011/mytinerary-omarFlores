@@ -91,7 +91,7 @@ export const Signin = () => {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="mb-3">
             <StyledButton type="submit">Sign In</StyledButton>
           </Col>
           <Col>
