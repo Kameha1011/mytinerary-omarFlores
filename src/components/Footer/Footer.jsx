@@ -1,6 +1,6 @@
 import { StyledFooter } from "./StyledFooter";
-import { BsFacebook } from "react-icons/bs";
-import { BsInstagram } from "react-icons/bs";
+import { BsLinkedin } from "react-icons/bs";
+import { BsGithub} from "react-icons/bs";
 export const Footer = () => {
   return (
     <StyledFooter
@@ -14,20 +14,20 @@ export const Footer = () => {
       <p className="ms-md-auto me-md-2">Developed by Omar Flores.</p>
       <div className="d-flex gap-3">
         <a
-          href="https://www.facebook.com"
+          href="https://www.linkedin.com/in/omar-flores2001/"
           target="_blank"
           rel="noreferrer"
           className="text-decoration-none text-light fs-1"
         >
-          <BsFacebook />
+          <BsLinkedin />
         </a>
         <a
-          href="https://www.instagram.com"
+          href="https://github.com/Kameha1011"
           target="_blank"
           rel="noreferrer"
           className="text-decoration-none text-light fs-1"
         >
-          <BsInstagram />
+          <BsGithub/>
         </a>
       </div>
     </StyledFooter>
