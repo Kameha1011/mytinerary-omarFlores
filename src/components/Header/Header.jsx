@@ -32,7 +32,7 @@ export const Header = () => {
                 variant="primary"
                 className="text-center ms-2 px-3 fw-bold"
               >
-                {user.picture ? (
+                {user?.picture ? (
                   <img
                     src={user?.picture}
                     alt="User Picture"
