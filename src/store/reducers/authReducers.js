@@ -46,6 +46,7 @@ const authReducer = createReducer(initialState, (builder) => {
     return {
       ...state,
       user: action.payload.user,
+      picture: action.payload.picture,
       token: action.payload.token,
     };
   });
@@ -54,6 +55,7 @@ const authReducer = createReducer(initialState, (builder) => {
       return {
         ...state,
         user: action.payload.user,
+        picture: action.payload.picture,
         token: action.payload.token,
       };
     }

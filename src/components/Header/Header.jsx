@@ -35,7 +35,7 @@ export const Header = () => {
                 {user ? (
                   <img
                     src={user?.picture}
-                    alt=""
+                    alt="User Picture"
                     className="rounded-circle me-2 user-icon"
                   />
                 ) : (
