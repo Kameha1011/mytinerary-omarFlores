@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const citiesRequest = axios.create({
-  baseURL: "http://localhost:3000/api/cities",
+  baseURL:
+    import.meta.env.MODE === "production"
+      ? "https://mytinerary-back-omarflores.onrender.com/api/cities"
+      : "http://localhost:3000/api/cities",
 });
 
 export const getCities = async (name, continent) => {
