@@ -9,6 +9,10 @@ export const StyledNavbar = styled(Navbar)`
     .nav-link:hover{
         color: #40F8FF;
     }
+    .user-icon{
+        height: 35px;
+        width: 35px;
+    }
     @media (min-width: 1024px) {
         height: 10vh;
     }

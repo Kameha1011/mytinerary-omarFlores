@@ -4,8 +4,13 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import { FaUserAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { signout } from "../../store/actions/authActions";
 export const Header = () => {
+  const user = useSelector((store) => store.authReducer.user);
+  const dispatch = useDispatch();
+  const location = useLocation();
   return (
     <StyledNavbar expand="md">
       <Container>
@@ -19,13 +24,26 @@ export const Header = () => {
             <Link to="/cities" className="text-decoration-none nav-link">
               Cities
             </Link>
-            <StyledButton
-              variant="primary"
-              className="text-center ms-2 px-3 fw-bold"
+            <Link
+              to={user ? location.pathname : "/signin"}
+              onClick={() => dispatch(signout())}
             >
-              <FaUserAlt className="me-2" />
-              Login
-            </StyledButton>
+              <StyledButton
+                variant="primary"
+                className="text-center ms-2 px-3 fw-bold"
+              >
+                {user ? (
+                  <img
+                    src={user?.picture}
+                    alt=""
+                    className="rounded-circle me-2 user-icon"
+                  />
+                ) : (
+                  <FaUserAlt className="me-2" />
+                )}
+                {user ? "Sign Out" : "Sign In"}
+              </StyledButton>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
